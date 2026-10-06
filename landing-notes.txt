@@ -1,0 +1,10 @@
+Refleksi Landing Page - Immanuel Library (Bagian 1)
+
+1. Apa keuntungan memisahkan header dan footer menjadi file component tersendiri,
+dibandingkan menuliskannya langsung berulang-ulang di index.php?
+Jawaban: Kerja tim jadi lebih tertib karena ada konvensi jelas mana component dan mana halaman. Teman yang mereview cukup cek components/landing/header.php dan footer.php tanpa menelusuri index.php baris per baris. Konflik saat mengerjakan bareng juga berkurang karena file yang disentuh berbeda. Hasilnya seragam satu kelas dan gampang dinilai.
+
+2. Perhatikan halaman-halaman admin (Buku, Kategori, Penulis, Pengguna, Profil) pada
+Bagian 2 - bagian mana pada halaman-halaman tersebut yang mengalami masalah yang sama
+seperti header/footer sebelum dipisah?
+Jawaban: Yang menyulitkan kolaborasi adalah sidebar (aside menu) dan topbar (header judul plus info pengguna) yang tersebar di 14 file admin. Tanpa component, satu perubahan kecil harus dikomunikasikan ke semua file. Karena itu keduanya disatukan di components/admin/sidebar.php dan components/admin/topbar.php lalu dipanggil dengan require. Topbar memakai variabel $pageTitle dan $pageSubtitle supaya tiap anggota tim cukup mengisi judul tanpa mengubah kerangka.
