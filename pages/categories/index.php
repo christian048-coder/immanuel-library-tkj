@@ -8,7 +8,9 @@
 </head>
 <body>
   <?php
+  // datanya ngambil dari repository kategori.
   require '../../repositories/category-repository.php';
+  // getCategories ngasih 4 kategori, ditampung di $categories buat di-foreach.
   $categories = getCategories();
   ?>
   <div class="app-shell">
@@ -40,6 +42,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php // loopingnya di sini, tiap kategori jadi satu baris tabel. ?>
               <?php foreach ($categories as $category): ?>
               <tr>
                 <td>
@@ -52,7 +55,9 @@
                 <td><span class="badge badge-muted"><?= $category['total_books'] ?> buku</span></td>
                 <td>
                   <div class="cell-actions">
+                    <?php // tombol Edit bawa id kategorinya ke edit.php. ?>
                     <a href="edit.php?id=<?= $category['id'] ?>" class="btn btn-outline btn-sm">Edit</a>
+                    <?php // tombol Hapus ke destroy kategori sambil bawa id, ada confirm biar enggak kepencet. ?>
                     <a href="../../actions/categories/destroy.php?id=<?= $category['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kategori ini?')">Hapus</a>
                   </div>
                 </td>

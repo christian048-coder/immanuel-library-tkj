@@ -9,6 +9,7 @@
 <body>
   <?php
   require '../../repositories/user-repository.php';
+  // getUser buat ngisi bagian Data Akun, getProfile buat ngisi bagian Data Profil. dua-duanya dari repository user.
   $user = getUser();
   $profile = getProfile();
   ?>
@@ -19,6 +20,7 @@
     <?php $pageTitle = 'Profil Saya'; $pageSubtitle = 'Kelola data akun dan profil Anda'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke update profil, tombolnya namanya ubah_profil. -->
         <form method="POST" action="../../actions/profile/update.php">
           <div class="form-card" style="margin-bottom:20px;">
             <div class="form-section-title">Data Akun</div>
@@ -35,6 +37,7 @@
             <div class="form-group">
               <label>Role</label>
               <input type="text" value="<?= ucfirst($user['role']) ?>" disabled>
+              <!-- role-nya cuma dipajang pakai disabled, enggak bisa diubah di sini, ngubahnya harus lewat admin di menu pengguna. -->
               <p class="form-help">Role hanya dapat diubah oleh Admin melalui menu Manajemen Pengguna.</p>
             </div>
           </div>
@@ -54,6 +57,7 @@
               <textarea id="bio" name="bio" rows="3"><?= $profile['bio'] ?></textarea>
             </div>
             <div class="form-actions">
+              <!-- tombol Batal di sini tipenya button biasa bukan submit, jadi dipencet enggak ngapa-ngapain, cuma pajangan. -->
               <button type="button" class="btn btn-outline">Batal</button>
               <button type="submit" name="ubah_profil" class="btn btn-primary">Simpan Perubahan</button>
             </div>

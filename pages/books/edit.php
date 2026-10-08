@@ -11,6 +11,7 @@
   require '../../repositories/book-repository.php';
   require '../../repositories/category-repository.php';
   require '../../repositories/author-repository.php';
+  // getBook ngasih satu buku contoh Antologi Rasa Nusantara, ditampung di $book terus dipakai buat ngisi value tiap input.
   $book = getBook();
   $categories = getCategories();
   $authors = getAuthors();
@@ -22,7 +23,9 @@
     <?php $pageTitle = 'Edit Buku'; $pageSubtitle = 'Perbarui data buku, kategori, dan penulis'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke update.php, tombolnya namanya ubah_buku plus ada hidden id biar tahu buku mana yang diubah. -->
         <form method="POST" action="../../actions/books/update.php">
+          <!-- input id yang disembunyiin, ikut kekirim pas submit biar actions tahu baris mana yang dimaksud. -->
           <input type="hidden" name="id" value="<?= $book['id'] ?>">
           <div class="form-card" style="margin-bottom:20px;">
             <div class="form-section-title">Data Buku</div>
@@ -49,6 +52,7 @@
                 <label for="category_id">Kategori</label>
                 <select id="category_id" name="category_id">
                   <?php foreach ($categories as $category): ?>
+                    <?php // kalau id kategorinya sama kayak punya buku, dropdownnya otomatis kepilih itu, trik kecil biar user enggak milih ulang. ?>
                     <option value="<?= $category['id'] ?>" <?= $category['id'] === $book['category_id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
                   <?php endforeach; ?>
                 </select>
@@ -67,6 +71,7 @@
               <div class="checkbox-grid">
                 <?php foreach ($authors as $author): ?>
                   <label class="checkbox-item">
+                    <?php // kalau id penulisnya ada di author_ids bukunya, checkboxnya otomatis kecentang. ?>
                     <input type="checkbox" name="author_ids[]" value="<?= $author['id'] ?>" <?= in_array($author['id'], $book['author_ids']) ? 'checked' : '' ?>>
                     <?= $author['name'] ?>
                   </label>

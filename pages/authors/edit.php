@@ -11,6 +11,7 @@
 <body>
   <?php
   require '../../repositories/author-repository.php';
+  // getAuthor ngasih satu penulis contoh Andrea Hirata, ditampung di $author buat ngisi form.
   $author = getAuthor();
   ?>
   <div class="app-shell">
@@ -20,6 +21,7 @@
       <?php $pageTitle = 'Edit Penulis'; $pageSubtitle = 'Perbarui data penulis'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke update penulis, tombolnya ubah_penulis plus hidden id. -->
         <form method="POST" action="../../actions/authors/update.php">
           <input type="hidden" name="id" value="<?= $author['id'] ?>">
           <div class="form-card">

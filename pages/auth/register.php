@@ -17,6 +17,7 @@
       <h1>Buat Akun Baru</h1>
       <p class="auth-subtitle">Daftar untuk mulai meminjam dan mengelola buku.</p>
 
+      <!-- formnya masih kosong method actionnya, tombol Daftar dipencet ya belum kejadian apa-apa. -->
       <form method="" action="">
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
@@ -41,6 +42,7 @@
       </form>
 
       <p class="form-footer-link">
+      <!-- link bawahnya buat yang udah punya akun, balik ke halaman login. -->
         Sudah punya akun? <a href="login.php">Masuk di sini</a>
       </p>
     </div>

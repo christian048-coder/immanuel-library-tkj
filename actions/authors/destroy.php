@@ -1,4 +1,5 @@
 <?php
+// ada id ya beres, enggak ada ya dibilang tidak ditemukan.
 if (isset($_GET['id'])) {
   echo "Penulis dengan id " . htmlspecialchars($_GET['id']) . " berhasil dihapus.";
 } else {

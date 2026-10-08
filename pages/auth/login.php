@@ -17,6 +17,7 @@
       <h1>Selamat Datang Kembali</h1>
       <p class="auth-subtitle">Masuk untuk mengelola koleksi buku perpustakaan.</p>
 
+      <!-- formnya method sama actionnya masih kosong, jadi dipencet Masuk ya belum ke mana-mana, wajar, emang belum waktunya. -->
       <form method="" action="">
         <div class="form-group">
           <label for="email">Email</label>
@@ -30,6 +31,7 @@
       </form>
 
       <p class="form-footer-link">
+      <!-- link bawahnya buat yang belum punya akun, ngarah ke halaman register. -->
         Belum punya akun? <a href="register.php">Daftar di sini</a>
       </p>
     </div>

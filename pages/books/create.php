@@ -8,8 +8,10 @@
 </head>
 <body>
   <?php
+  // repository kategori sama penulis di-require biar dropdownnya nyambung ke satu sumber data.
   require '../../repositories/category-repository.php';
   require '../../repositories/author-repository.php';
+  // getCategories buat isi dropdown, getAuthors buat isi checkbox di bawah.
   $categories = getCategories();
   $authors = getAuthors();
   ?>
@@ -20,6 +22,7 @@
     <?php $pageTitle = 'Tambah Buku'; $pageSubtitle = 'Lengkapi data buku, kategori, dan penulis'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke store.php, tombol submitnya namanya tambah_buku, itu yang dicek satpam di actions. -->
         <form method="POST" action="../../actions/books/store.php">
           <div class="form-card" style="margin-bottom:20px;">
             <div class="form-section-title">Data Buku</div>
@@ -45,6 +48,7 @@
               <div class="form-group">
                 <label for="category_id">Kategori</label>
                 <select id="category_id" name="category_id">
+                  <?php // dropdown kategorinya di-loop dari $categories, tiap opsi valuenya id kategorinya. ?>
                   <?php foreach ($categories as $category): ?>
                     <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                   <?php endforeach; ?>
@@ -62,6 +66,7 @@
             <div class="form-group">
               <label>Pilih Penulis (bisa lebih dari satu)</label>
               <div class="checkbox-grid">
+                <?php // checkbox penulisnya di-loop dari $authors, namanya author_ids pakai kurung siku biar bisa kepilih banyak. ?>
                 <?php foreach ($authors as $author): ?>
                   <label class="checkbox-item">
                     <input type="checkbox" name="author_ids[]" value="<?= $author['id'] ?>">

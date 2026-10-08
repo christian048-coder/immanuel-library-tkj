@@ -8,7 +8,9 @@
 </head>
 <body>
   <?php
+  // datanya ngambil dari repository penulis.
   require '../../repositories/author-repository.php';
+  // getAuthors ngasih 5 penulis, ditampung di $authors buat di-foreach.
   $authors = getAuthors();
   ?>
   <div class="app-shell">
@@ -39,6 +41,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php // loopingnya di sini, tiap penulis jadi satu baris. ?>
               <?php foreach ($authors as $author): ?>
               <tr>
                 <td>
@@ -51,6 +54,7 @@
                 <td>
                   <div class="cell-actions">
                     <a href="edit.php?id=<?= $author['id'] ?>" class="btn btn-outline btn-sm">Edit</a>
+                    <?php // tombol Hapus ke destroy penulis bawa id, ada confirm biar aman. ?>
                     <a href="../../actions/authors/destroy.php?id=<?= $author['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus penulis ini?')">Hapus</a>
                   </div>
                 </td>

@@ -9,6 +9,7 @@
 <body>
   <?php
   require '../../repositories/user-repository.php';
+  // getUser ngasih satu user contoh Budi Santoso, dipakai buat ngisi value form.
   $user = getUser();
   ?>
   <div class="app-shell">
@@ -18,6 +19,7 @@
     <?php $pageTitle = 'Edit Pengguna'; $pageSubtitle = 'Perbarui data dan role pengguna'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke update pengguna, tombolnya ubah_pengguna plus hidden id. -->
         <form method="POST" action="../../actions/users/update.php">
           <input type="hidden" name="id" value="<?= $user['id'] ?>">
           <div class="form-card">
@@ -35,6 +37,7 @@
             <div class="form-group">
               <label for="role">Role</label>
               <select id="role" name="role">
+                <?php // dropdown role-nya otomatis kepilih sesuai role usernya, jadi enggak perlu milih ulang kalau enggak mau ganti. ?>
                 <option value="member" <?= $user['role'] === 'member' ? 'selected' : '' ?>>Member</option>
                 <option value="admin" <?= $user['role'] === 'admin' ? 'selected' : '' ?>>Admin</option>
               </select>

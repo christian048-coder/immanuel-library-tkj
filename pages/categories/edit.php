@@ -9,6 +9,7 @@
 <body>
   <?php
   require '../../repositories/category-repository.php';
+  // getCategory ngasih satu kategori contoh yang Fiksi, ditampung di $category buat ngisi value form.
   $category = getCategory();
   ?>
   <div class="app-shell">
@@ -18,7 +19,9 @@
     <?php $pageTitle = 'Edit Kategori'; $pageSubtitle = 'Perbarui data kategori'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke update kategori, tombolnya namanya ubah_kategori. -->
         <form method="POST" action="../../actions/categories/update.php">
+          <!-- hidden id biar actions tahu kategori nomor berapa yang diubah. -->
           <input type="hidden" name="id" value="<?= $category['id'] ?>">
           <div class="form-card">
             <div class="form-section-title">Data Kategori</div>

@@ -14,6 +14,7 @@
     <?php $pageTitle = 'Tambah Pengguna'; $pageSubtitle = 'Buat akun pengguna baru beserta perannya'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke store pengguna, tombolnya namanya tambah_pengguna. -->
         <form method="POST" action="../../actions/users/store.php">
           <div class="form-card">
             <div class="form-section-title">Data Pengguna</div>
@@ -34,6 +35,7 @@
               </div>
               <div class="form-group">
                 <label for="role">Role</label>
+              <!-- dropdown role isinya member sama admin, defaultnya member yang kepilih duluan. -->
                 <select id="role" name="role">
                   <option value="member">Member</option>
                   <option value="admin">Admin</option>

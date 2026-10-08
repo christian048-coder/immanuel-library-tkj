@@ -8,7 +8,9 @@
 </head>
 <body>
   <?php
+  // datanya ngambil dari repository user.
   require '../../repositories/user-repository.php';
+  // getUsers ngasih 4 orang, ditampung di $users buat di-foreach.
   $users = getUsers();
   ?>
   <div class="app-shell">
@@ -40,6 +42,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php // loopingnya di sini, tiap user jadi satu baris. ?>
               <?php foreach ($users as $user): ?>
               <tr>
                 <td>
@@ -50,6 +53,7 @@
                 </td>
                 <td><?= $user['email'] ?></td>
                 <td>
+                  <?php // cek role-nya: kalau admin badgenya Admin, kalau bukan ya Member, biar gampang bedain sekilas. ?>
                   <?php if ($user['role'] === 'admin'): ?>
                     <span class="badge badge-admin">Admin</span>
                   <?php else: ?>
@@ -59,6 +63,7 @@
                 <td>
                   <div class="cell-actions">
                     <a href="edit.php?id=<?= $user['id'] ?>" class="btn btn-outline btn-sm">Edit</a>
+                    <?php // tombol Hapus ke destroy pengguna bawa id, ada confirm biar aman. ?>
                     <a href="../../actions/users/destroy.php?id=<?= $user['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus pengguna ini?')">Hapus</a>
                   </div>
                 </td>

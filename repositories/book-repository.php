@@ -1,5 +1,6 @@
 <?php
 
+// getBooks() kerjanya ngasih semua buku sekaligus, ada 5 judul, tiap bukunya bawa id, judul, kategori, tahun, stok, sama list penulis. biasanya dipanggil di halaman index terus di-foreach biar jadi baris tabel satu-satu.
 function getBooks() {
   return [
     ["id" => 1, "title" => "Laskar Pelangi", "category" => "Fiksi", "year" => 2005, "stock" => 12, "authors" => ["Andrea Hirata"]],
@@ -10,6 +11,7 @@ function getBooks() {
   ];
 }
 
+// getBook() kerjanya ngasih cuma SATU buku aja, yang Antologi Rasa Nusantara lengkap sama isbn, deskripsi, category_id dan author_ids. dipakai di halaman show sama edit biar formnya keisi otomatis, sengaja nggak pakai parameter biar gampang dipanggil.
 function getBook() {
   return [
     "id" => 5,

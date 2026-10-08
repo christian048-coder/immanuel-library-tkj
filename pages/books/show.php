@@ -9,6 +9,7 @@
 <body>
   <?php
   require '../../repositories/book-repository.php';
+  // datanya dari getBook, satu buku aja, ditampung di $book terus dipajang satu-satu di bawah.
   $book = getBook();
   ?>
   <div class="app-shell">
@@ -32,6 +33,7 @@
               <div class="detail-label">Penulis</div>
               <div class="detail-value">
                 <div class="chip-list">
+                  <?php // penulisnya di-loop jadi chip satu-satu, soalnya bukunya bisa punya dua penulis. ?>
                   <?php foreach ($book['authors'] as $authorName): ?>
                     <span class="chip"><?= $authorName ?></span>
                   <?php endforeach; ?>
@@ -48,6 +50,7 @@
             </div>
 
             <div class="form-actions" style="border-top:none; padding-top:6px;">
+              <!-- tombol Kembali balik ke daftar, tombol Edit Buku buka edit.php sambil bawa id bukunya. -->
               <a href="index.php" class="btn btn-outline">Kembali</a>
               <a href="edit.php?id=<?= $book['id'] ?>" class="btn btn-primary">Edit Buku</a>
             </div>

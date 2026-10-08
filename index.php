@@ -9,7 +9,8 @@
 </head>
 
 <body>
-  <?php require_once 'components/landing/header.php'; ?>
+  <?php // navbarnya diambil dari component biar rapi, bukan ditulis langsung di sini.
+require_once 'components/landing/header.php'; ?>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
@@ -96,7 +97,8 @@
       </div>
     </div>
   </section>
-  <?php require_once 'components/landing/footer.php'; ?>
+  <?php // kakinya diambil dari component, sama kayak header.
+require_once 'components/landing/footer.php'; ?>
 </body>
 
 </html>

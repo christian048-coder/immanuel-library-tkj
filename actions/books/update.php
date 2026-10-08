@@ -1,8 +1,10 @@
 <?php
+// satpamnya sama kayak store, tapi yang dicari tombol ubah_buku. dibuka langsung ya ditolak.
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['ubah_buku'])) {
   echo "Akses tidak valid.";
   return;
 }
+// cek kelengkapannya: id wajib ada plus title, isbn, year, stock, category_id, description. lengkap ya dipajang print_r, kurang ya dibilang data tidak lengkap.
 if (isset($_POST['id'], $_POST['title'], $_POST['isbn'], $_POST['year'], $_POST['stock'], $_POST['category_id'], $_POST['description'])) {
   $data = [
     'id' => $_POST['id'],

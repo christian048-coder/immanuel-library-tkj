@@ -14,6 +14,7 @@
     <?php $pageTitle = 'Tambah Kategori'; $pageSubtitle = 'Buat kategori baru untuk mengelompokkan buku'; require '../../components/admin/topbar.php'; ?>
 
       <div class="app-content">
+      <!-- formnya dikirim POST ke store kategori, tombolnya namanya tambah_kategori. -->
         <form method="POST" action="../../actions/categories/store.php">
           <div class="form-card">
             <div class="form-section-title">Data Kategori</div>

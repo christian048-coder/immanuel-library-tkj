@@ -1,5 +1,6 @@
 <?php
 
+// getAuthors() kerjanya ngasih semua penulis sekaligus, tiap orang bawa id, nama, bio singkat, sama total_books. dipakai di halaman index penulis sama di form buku buat checkbox penulis.
 function getAuthors() {
   return [
     ["id" => 1, "name" => "Andrea Hirata", "bio" => "Penulis asal Belitung, dikenal lewat novel Laskar Pelangi.", "total_books" => 1],
@@ -10,6 +11,7 @@ function getAuthors() {
   ];
 }
 
+// getAuthor() kerjanya ngasih SATU penulis aja, contohnya Andrea Hirata. dipakai di halaman edit biar inputnya keisi otomatis, nggak pakai parameter.
 function getAuthor() {
   return ["id" => 1, "name" => "Andrea Hirata", "bio" => "Penulis asal Belitung, dikenal lewat novel Laskar Pelangi.", "total_books" => 1];
 }
